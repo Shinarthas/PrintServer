@@ -1,6 +1,7 @@
 import subprocess
 import os
 import win32api
+import  win32print
 from functions import *
 import json
 import threading
@@ -11,6 +12,8 @@ with open(FILE_NAME) as f:
 server_url = d['server_url']
 driver=d['printer']
 
+GHOSTSCRIPT_PATH = "C:\\ghostscript\\bin\\gswin32.exe"
+GSPRINT_PATH = "C:\\gsprint\\gsprint.exe"
 
 def job():
     f = open("status.txt", "r")
@@ -20,15 +23,12 @@ def job():
     write_file("0")
     print('a')
     if(download_file(server_url)):
+        # YOU CAN PUT HERE THE NAME OF YOUR SPECIFIC PRINTER INSTEAD OF DEFAULT
+        currentprinter = win32print.GetDefaultPrinter()
 
-        p = subprocess.Popen([r"C:\Program Files\Ghostgum\gsview\gsprint.exe", "file.pdf"],
-                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = p.communicate()
-        os.system('C:\Program Files\Ghostgum\gsview\gsprint.exe -printer "{}" "test.pdf"'.format(driver))
-        #win32api.ShellExecute('C:\Program Files\Ghostgum\gsview\gsprint.exe -printer "HP LaserJet 3055 PCL6 Class Driver" "test.pdf"')
-        win32api.WinExec('C:\Program Files\Ghostgum\gsview\gsprint.exe -printer "{}" "test.pdf"'.format(driver))
-        print(stdout)
-        print(stderr)
+        win32api.ShellExecute(0, 'open', GSPRINT_PATH,
+                              '-ghostscript "' + GHOSTSCRIPT_PATH + '" -printer "' + currentprinter + '" "file.pdf"',
+                              '.', 0)
         #delete_file()
     write_file("1")
 

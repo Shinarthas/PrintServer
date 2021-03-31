@@ -6,7 +6,7 @@ import sys
 gsprint = r"C:\Program Files\Ghostgum\gsview\gsprint.exe"
 
 # -quertオプションでプリンタ一覧を呼び出す
-cmd = '"{}" -query "{}"'.format(gsprint, "file.pdf")
+cmd = '"{}" -query "{}"'.format(gsprint, "document.pdf")
 
 proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 stdout, stderr = proc.communicate()

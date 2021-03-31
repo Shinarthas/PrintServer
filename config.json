@@ -1,4 +1,4 @@
 {
-  "server_url": "https://a.rte.im/api/v1/print-server/1",
+  "server_url": "https://a.rte.im/api/v1/print-server/1/pop?token=60635c0209399",
   "printer": "HP LaserJet 3055 PCL6 Class Driver"
 }

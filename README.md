@@ -4,7 +4,9 @@ Setup server url and driver in config.json
 
 keep an eay on status.txt
 
-install GSPrint refer to https://stackoverflow.com/questions/4498099/silent-printing-of-a-pdf-in-python
+install GSPrint refer to https://stackoverflow.com/questions/27195594/python-silent-print-pdf-to-specific-printer
+executables are in git
+
 
 run index.bat
 

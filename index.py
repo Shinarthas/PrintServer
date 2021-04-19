@@ -29,7 +29,7 @@ def job():
         win32api.ShellExecute(0, 'open', GSPRINT_PATH,
                               '-ghostscript "' + GHOSTSCRIPT_PATH + '" -printer "' + currentprinter + '" "file.pdf"',
                               '.', 0)
-        #delete_file()
+        delete_file()
     write_file("1")
 
 
